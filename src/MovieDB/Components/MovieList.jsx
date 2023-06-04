@@ -76,7 +76,7 @@ export default function MovieList() {
         </div>
       ) : (
         // Películas
-        <Row>
+        <Row className="mx-auto p-2">
           {movies.map((movie) => {
             // Verificar si la película tiene la información necesaria
             if (
@@ -90,10 +90,9 @@ export default function MovieList() {
               return (
                 <Col
                   key={movie.id}
-                  xs={12}
                   sm={12}
                   md={4}
-                  lg={4}
+                  lg={3}
                   className="d-flex justify-content-center"
                 >
                   <MovieItem movie={movie} />

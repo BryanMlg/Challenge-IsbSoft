@@ -5,7 +5,7 @@ export default function MovieItem({ movie }) {
   return (
     <div
       className="card mb-3 d-flex pointer"
-      style={{ maxWidth: "500px", cursor: "pointer" }}
+      style={{ maxWidth: "600px", cursor: "pointer" }}
       onClick={() => setIsOpen(!isOpen)}
     >
       <div className="row g-0">

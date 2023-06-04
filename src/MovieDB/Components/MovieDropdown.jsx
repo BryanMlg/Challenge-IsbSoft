@@ -3,31 +3,52 @@ import { useState } from "react";
 
 const MovieDropdown = ({ onSelect }) => {
   const [selectedGenre, setSelectedGenre] = useState("");
-  
+
   const handleGenreChange = (eventKey) => {
-    if(eventKey === "28"){
+    if (eventKey === "28") {
       setSelectedGenre("Action");
-    }else if(eventKey === "35"){
-      setSelectedGenre("Comedy")
-    }else{
-      setSelectedGenre("Drama")
+    } else if (eventKey === "35") {
+      setSelectedGenre("Comedy");
+    } else {
+      setSelectedGenre("Drama");
     }
     onSelect(eventKey);
   };
 
   return (
-    <Dropdown onSelect={handleGenreChange} className="mb-3">
-      <Dropdown.Toggle variant="primary" id="genreDropdown">
+    <Dropdown
+      onSelect={handleGenreChange}
+      className="mb-3 d-flex justify-content-center align-items-center"
+    >
+      <Dropdown.Toggle
+        variant="primary"
+        id="genreDropdown"
+        className=" d-flex justify-content-center align-items-center w-100"
+      >
         {selectedGenre ? selectedGenre : "Select Genre"}
       </Dropdown.Toggle>
-      <Dropdown.Menu>
-        <Dropdown.Item eventKey="28">Action</Dropdown.Item>
-        <Dropdown.Item eventKey="35">Comedy</Dropdown.Item>
-        <Dropdown.Item eventKey="18">Drama</Dropdown.Item>
+      <Dropdown.Menu className="w-100">
+        <Dropdown.Item
+          eventKey="28"
+          className="d-flex justify-content-center align-items-center"
+        >
+          Action
+        </Dropdown.Item>
+        <Dropdown.Item
+          eventKey="35"
+          className="d-flex justify-content-center align-items-center"
+        >
+          Comedy
+        </Dropdown.Item>
+        <Dropdown.Item
+          eventKey="18"
+          className="d-flex justify-content-center align-items-center"
+        >
+          Drama
+        </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );
 };
 
 export default MovieDropdown;
-

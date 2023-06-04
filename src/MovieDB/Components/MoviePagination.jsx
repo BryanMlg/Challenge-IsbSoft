@@ -14,7 +14,7 @@ const MoviePagination = ({ currentPage, totalPages, onPageChange }) => {
   };
 
   return (
-    <Pagination className="d-flex justify-content-center sticky-bottom">
+    <Pagination className="d-flex justify-content-center">
       <Pagination.Prev onClick={handlePrevPage} disabled={currentPage === 1} />
       {Array.from({ length: 10 }, (_, index) => currentPage + index).map(
         (pageNumber) => (

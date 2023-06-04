@@ -1,20 +1,41 @@
 export default function MovieInfo({ movie }) {
-  const renderPopularityPercentage = (popularity) => {
-    const percentage = Math.min((popularity / 1000) * 100, 100);
-    const roundedPercentage = Math.round(percentage);
-    return `${roundedPercentage}%`;
-  };
+  // Calcula el número de estrellas llenas y medias
+  const average = movie.vote_average;
+  const fullStars = Math.floor(average / 2);
+  const hasHalfStar = average % 2 !== 0;
+
+  // Genera las estrellas llenas
+  const stars = [];
+  for (let i = 0; i < fullStars; i++) {
+    stars.push(<i className="bi bi-star-fill" key={i} />);
+  }
+
+  // Agrega una estrella media si corresponde
+  if (hasHalfStar) {
+    stars.push(<i className="bi bi-star-half" key={fullStars} />);
+  }
+
+  // Completa con estrellas vacías si es necesario
+  const remainingStars = 5 - stars.length;
+  for (let i = 0; i < remainingStars; i++) {
+    stars.push(<i className="bi bi-star" key={fullStars + i} />);
+  }
 
   return (
     <div className="card text-center position-absolute h-100 rounded-0 d-flex justify-content-center align-items-center">
-       <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} className="card-img-top w-50 mt-5" alt="Movie"/>
-      <div className="card-body d-flex flex-column justify-content-center align-items-center">
-        <h5 className="card-title">
-          Popularity: {renderPopularityPercentage(movie.popularity)}
-        </h5>
+      <div className="stars">{stars}</div>
+      <p className="card-text">{average}</p>
+      <img
+        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+        className="card-img-top w-50"
+        alt="Movie"
+      />
+      <div className="card-body mt-1 d-flex flex-column justify-content-center align-items-center overflow-auto">
         <p className="card-text">{movie.overview}</p>
       </div>
-      <div className="card-header w-100"><i className="bi bi-x-lg"/></div>
+      <div className="card-header w-100">
+        <i className="bi bi-x-lg" />
+      </div>
     </div>
   );
 }
