@@ -1,8 +1,8 @@
-import TaskList from "../Tareas/Components/TaskList";
+import MovieList from "../MovieDB/Components/MovieList";
 function App() {
   return (
     <>
-      <TaskList />
+      <MovieList/>
     </>
   );
 }
