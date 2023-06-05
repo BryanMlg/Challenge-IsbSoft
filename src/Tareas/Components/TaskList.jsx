@@ -37,7 +37,7 @@ export default function TaskList() {
           aria-label="Sizing example input"
           aria-describedby="inputGroup-sizing-lg"
           value={newTask}
-          placeholder="TASK"
+          placeholder="Add new task"
           onChange={(e) => setNewTask(e.target.value)}
           onKeyDown={handleKeyPress}
         />
