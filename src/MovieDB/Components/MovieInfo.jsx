@@ -7,18 +7,18 @@ export default function MovieInfo({ movie }) {
   // Genera las estrellas llenas
   const stars = [];
   for (let i = 0; i < fullStars; i++) {
-    stars.push(<i className="bi bi-star-fill" key={i} />);
+    stars.push(<i className="bi bi-star-fill" key={`${movie.id}-full-${i}`} />);
   }
 
   // Agrega una estrella media si corresponde
   if (hasHalfStar) {
-    stars.push(<i className="bi bi-star-half" key={fullStars} />);
+    stars.push(<i className="bi bi-star-half" key={`${movie.id}-half`} />);
   }
 
   // Completa con estrellas vacías si es necesario
   const remainingStars = 5 - stars.length;
   for (let i = 0; i < remainingStars; i++) {
-    stars.push(<i className="bi bi-star" key={fullStars + i} />);
+    stars.push(<i className="bi bi-star" key={`${movie.id}-empty-${i}`} />);
   }
 
   return (

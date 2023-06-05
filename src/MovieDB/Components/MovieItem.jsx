@@ -17,7 +17,7 @@ export default function MovieItem({ movie }) {
 
         <div className="col-md-8">
           <div className="card-body">
-            <h5 className="card-title">{movie.title}</h5>
+            <h5 className="card-title">{movie.id}</h5>
             <p className="card-text">
               <small className="text-body-secondary">
                 {movie.release_date}
