@@ -13,8 +13,16 @@ const MoviePagination = ({ currentPage, totalPages, onPageChange }) => {
     onPageChange(pageNumber);
   };
 
+  const handleFirstPage = () => {
+    onPageChange(1);
+  };
+
   return (
     <Pagination className="d-flex justify-content-center">
+      <Pagination.First
+        onClick={handleFirstPage}
+        disabled={currentPage === 1}
+      />
       <Pagination.Prev onClick={handlePrevPage} disabled={currentPage === 1} />
       {Array.from({ length: 10 }, (_, index) => currentPage + index).map(
         (pageNumber) => (

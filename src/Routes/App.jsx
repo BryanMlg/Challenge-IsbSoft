@@ -1,7 +1,6 @@
 import { Route, Routes, BrowserRouter, Link } from "react-router-dom";
 import MovieList from "../MovieDB/Components/MovieList";
 import TaskList from "../Tareas/Components/TaskList";
-import Logo from "../Assets/5.png";
 const App = () => {
   return (
     <BrowserRouter>
@@ -9,11 +8,6 @@ const App = () => {
         <div className="container">
           <Link className="navbar-brand" to="https://github.com/BryanMlg">
             Bryan Guerra
-            <img
-              src={Logo}
-              alt="Logo"
-              style={{ borderRadius: 1000, width: 30, marginLeft: 15 }}
-            />
           </Link>
 
           <ul className="navbar-nav d-flex">
